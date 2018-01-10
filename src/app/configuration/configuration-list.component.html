@@ -1,0 +1,19 @@
+<div>
+    <h1>
+        Configuration list
+    </h1>
+    <table style="width: 100%">
+        <tr>
+            <th>Name</th>
+            <th>Hostname</th>
+            <th>Port</th>
+            <th>Username</th>
+        </tr>
+        <tr *ngFor="let config of configurations">
+            <td> {{config.name}} </td>
+            <td> {{config.hostname}} </td>
+            <td> {{config.port}} </td>
+            <td> {{config.username}} </td>
+        </tr>
+    </table>
+</div>
