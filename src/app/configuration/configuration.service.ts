@@ -6,7 +6,6 @@ import { Configuration } from "./configuration";
 export class ConfigurationService{
 
     getConfigurations(url: string) : Configuration[] {
-        console.log(url);
         let configurations: Configuration[] = CONFIGURATIONS['configurations'];
         return configurations;
     }
