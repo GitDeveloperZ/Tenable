@@ -12,6 +12,18 @@
             "hostname": "nessus-xml.lab.com",
             "port": "3384",
             "username": "admin"
+        },
+        {
+            "name": "host3",
+            "hostname": "nessus-css.lab.com",
+            "port": "3847",
+            "username": "administrator"
+        },
+        {
+            "name": "host4",
+            "hostname": "nessus-wpf.lab.com",
+            "port": "3684",
+            "username": "tenable"
         }
     ]
 }

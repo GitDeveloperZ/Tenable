@@ -2,18 +2,20 @@
     <h1>
         Configuration list
     </h1>
-    <table style="width: 100%">
+    <table id="configTable">
         <tr>
             <th>Name</th>
             <th>Hostname</th>
             <th>Port</th>
             <th>Username</th>
+            <th></th>
         </tr>
-        <tr *ngFor="let config of configurations">
+        <tr *ngFor="let config of configurations; let i=index" id="configTableRow{{i}}">
             <td> {{config.name}} </td>
             <td> {{config.hostname}} </td>
             <td> {{config.port}} </td>
             <td> {{config.username}} </td>
+            <td><button id="btnDelete" (click)="deleteConfiguration(i)">Delete</button></td>
         </tr>
     </table>
 </div>
