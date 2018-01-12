@@ -1,19 +1,20 @@
 <div>
-    <h1>
+    <h1 class="tableHeading">
         Configuration list
     </h1>
-    <table style="width: 100%">
-        <tr>
+    <table class="configurationTable">
+        <tr class="tableColumnHeader">
             <th>Name</th>
             <th>Hostname</th>
             <th>Port</th>
             <th>Username</th>
         </tr>
-        <tr *ngFor="let config of configurations">
+        <tr *ngFor="let config of configurations; let i = index; let isOdd = odd" 
+        [class.tableRowOdd]=isOdd>
             <td> {{config.name}} </td>
             <td> {{config.hostname}} </td>
             <td> {{config.port}} </td>
             <td> {{config.username}} </td>
-        </tr>
+        </tr>        
     </table>
 </div>

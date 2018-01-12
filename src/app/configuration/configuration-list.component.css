@@ -1,0 +1,32 @@
+.configurationTable {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.configurationTable td {
+    border: 1px solid #dddddd;
+    padding: 4px;
+    text-align: left;
+} 
+
+.tableRowOdd {
+    background-color: #D0ECE7;
+}
+
+.tableColumnHeader {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #16A085;
+}
+
+.tableColumnHeader th {
+    border: 1px solid #dddddd;
+    padding: 4px;
+    text-align: left;
+} 
+
+.tableHeading {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    color: #3498DB;
+}
