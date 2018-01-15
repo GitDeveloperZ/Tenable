@@ -1,0 +1,22 @@
+<div>
+    <div class="panel" *ngIf="configurations">
+        <p-panel [toggleable]="false">
+            <p-header>
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    <button pButton type="button" icon="fa-window-close" class="pull-right ui-button-warning" 
+                      (click)="closeDetail()"></button>
+            </p-header>
+            <div>
+                <div *ngIf="configurations.length === 1">
+                   <p>Name: {{configurations[0].name}}</p>
+                   <p>Hostname: {{configurations[0].hostname}}</p>
+                   <p>Port: {{configurations[0].port}}</p>
+                   <p>Username: {{configurations[0].username}}</p>
+                </div>
+                <div *ngIf="configurations.length > 1">
+                    {{configurations.length}} configurations selected
+                </div>
+            </div> 
+        </p-panel>
+    </div>
+</div>

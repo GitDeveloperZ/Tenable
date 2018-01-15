@@ -1,20 +1,25 @@
-<div>
+<div class="row container-fluid">
     <h1 class="tableHeading">
-        Configuration list
+            Server Configurations
     </h1>
-    <table class="configurationTable">
-        <tr class="tableColumnHeader">
-            <th>Name</th>
-            <th>Hostname</th>
-            <th>Port</th>
-            <th>Username</th>
-        </tr>
-        <tr *ngFor="let config of configurations; let i = index; let isOdd = odd" 
-        [class.tableRowOdd]=isOdd>
-            <td> {{config.name}} </td>
-            <td> {{config.hostname}} </td>
-            <td> {{config.port}} </td>
-            <td> {{config.username}} </td>
-        </tr>        
-    </table>
+</div>
+<div class="row container-fluid">
+    <div [ngClass]="showDetails? 'col-md-8' : 'col-md-12'">
+        <ngx-datatable
+            class="material striped"
+            [rows]="configurations"
+            [columns]="columns"
+            [columnMode]="'force'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50"
+            [selectionType]="'multi'"
+            (select)="configurationSelect($event)"
+        >
+    </ngx-datatable>
+    </div>
+    <div [ngClass]="showDetails? 'col-md-4' : 'invisible'">
+        <configuration-detail [config]="selectedConfigurations" (detailClose)="closeDetailsPanel()"></configuration-detail>
+    </div>
+   
 </div>
