@@ -11,7 +11,6 @@ import { HttpModule } from '@angular/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ButtonModule, PanelModule } from 'primeng/primeng';
 import { ConfigurationDetailComponent } from './configuration/configuration-detail.component';
-import { Button } from 'selenium-webdriver';
 
 @NgModule({
   declarations: [

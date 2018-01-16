@@ -15,11 +15,15 @@
             [rowHeight]="50"
             [selectionType]="'multi'"
             (select)="configurationSelect($event)"
+            [externalPaging]="true"
+            [limit]="page.pageCount"
+            [count]="page.items"
+            [offset]="page.pageNumber"
+            (page)="getPage($event)"
         >
     </ngx-datatable>
     </div>
     <div [ngClass]="showDetails? 'col-md-4' : 'invisible'">
         <configuration-detail [config]="selectedConfigurations" (detailClose)="closeDetailsPanel()"></configuration-detail>
     </div>
-   
 </div>

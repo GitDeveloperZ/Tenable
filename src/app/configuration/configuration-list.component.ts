@@ -4,6 +4,7 @@ import { RestEndPoints } from '../RestEndpoints';
 import { Configuration } from './configuration';
 import { Observable } from 'rxjs/Observable';
 import { ConfigurationDetailComponent } from './configuration-detail.component';
+import { ConfigurationPage } from './configuration-page';
 
 @Component({
   selector: 'configuration-list',
@@ -16,6 +17,7 @@ export class ConfigurationListComponent implements OnInit {
     public configurations: Configuration[];
     public selectedConfigurations: Configuration[] = [];
     public showDetails = false;
+    public page = new ConfigurationPage();
 
     columns = [
         { prop: 'name' },
@@ -25,13 +27,11 @@ export class ConfigurationListComponent implements OnInit {
     ];
 
     constructor(private configService: ConfigurationService) {
+        this.page.pageNumber = 0;
     }
 
     ngOnInit() {
-        this.configService.getConfigurations(RestEndPoints.download_host + '2')
-        .subscribe(
-           configs => this.configurations = configs
-        );
+        this.getPage({ offset: 0 });
     }
 
     configurationSelect(selected) {
@@ -42,5 +42,14 @@ export class ConfigurationListComponent implements OnInit {
     closeDetailsPanel() {
         this.showDetails = false;
         this.selectedConfigurations = [];
+    }
+
+    getPage(page) {
+        this.page.pageNumber = page.offset;
+        this.configService.getConfigurations(RestEndPoints.download_host + '100', this.page)
+            .subscribe( pagedConfigs => {
+                this.page = pagedConfigs.page;
+                this.configurations = pagedConfigs.configurations;
+        });
     }
 }
